@@ -1,12 +1,20 @@
+# processor/urls.py
 from django.urls import path
 from . import views
 
+app_name = "processor"
+
 urlpatterns = [
-    path('step1/', views.Step1View.as_view(), name='step1'),
-    path('step2/', views.Step2View.as_view(), name='step2'),
-    path('step3/', views.Step3View.as_view(), name='step3'),
-    path('step4/', views.Step4View.as_view(), name='step4'),
+    # Master pipeline trigger
+    path("v1/pipeline/trigger/", views.TriggerPipelineView.as_view(), name="trigger_pipeline"),
     
-    # Master API for CI/CD
-    path('run-pipeline/', views.MasterPipelineView.as_view(), name='master_pipeline'),
+    # Individual step demos
+    path("v1/pipeline/step1/", views.Step1View.as_view(), name="step1"),
+    path("v1/pipeline/step2-3/", views.Step2And3View.as_view(), name="step2_3"),
+    
+    # Result fetching
+    path("v1/pipeline/<uuid:job_id>/result/", views.GetResultView.as_view(), name="get_result"),
+    
+    # Instant RAM/CPU bomb demo
+    path("v1/pipeline/ram-bomb/", views.RamBombView.as_view(), name="ram_bomb"),
 ]

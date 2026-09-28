@@ -112,3 +112,14 @@ python manage.py runserver
 ## License
 
 This project is intended for internal development and use.
+
+
+
+# for insert 10 milions or random data run this commnad
+python manage.py seed_ec2_load
+
+
+# locust for load test
+pip install locust
+
+run file locust -f locustfile.py --host http://127.0.0.1:8000
