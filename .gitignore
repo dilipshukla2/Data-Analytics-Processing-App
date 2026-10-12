@@ -45,3 +45,7 @@ media/
 
 # Local development
 *.pid
+
+# macOS system files
+__MACOSX/
+.DS_Store
