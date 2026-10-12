@@ -1,4 +1,4 @@
-# processor/management/commands/seed_ec2_load.py
+# processor/management/commands/seed_mega_data.py
 import random
 import string
 import time
